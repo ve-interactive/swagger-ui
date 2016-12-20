@@ -1,0 +1,24 @@
+{
+  \"id\": \"${FULL_APP_NAME}\",
+  \"cpus\": ${APP_CPU},
+  \"mem\": ${APP_MEMORY},
+  \"instances\": ${APP_INSTANCES},
+  \"container\": {
+    \"type\": \"DOCKER\",
+    \"docker\": {
+      \"image\": \"${IMAGE_NAME}:${IMAGE_VERSION}\",
+      \"network\": \"BRIDGE\",
+      \"portMappings\": [
+        {
+          \"containerPort\": 0,
+          \"servicePort\": 10009,
+          \"protocol\": \"tcp\",
+          \"name\": \"check\"
+        }
+      ]
+    }
+  },
+  \"uris\": [
+  \"file:///var/ve/docker_registry/docker.tar.gz\"
+  ]
+}
